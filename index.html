@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Blog</title>
+    <title>Dilemas Digitais & Soluções</title>
     <style>
         header {
             background-color: #183C63;
@@ -14,11 +13,15 @@
             max-width: 800px;
             margin-bottom: 30px;
             margin: 0 auto;
+            padding: 20px;
+            border-radius: 0 0 10px 10px;
         }
 
         body {
-            background-color: "yellow";
-
+            background-color: #F4F6F9; /* Corrigido o erro das aspas no amarelo por um tom neutro moderno */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         main {
@@ -27,8 +30,11 @@
             display: flex;
             align-items: center;
             margin-bottom: 30px;
+            margin: 0 auto;
+            max-width: 800px;
             flex-direction: column;
             gap: 20px;
+            padding: 20px 0;
         }
 
         img {
@@ -42,11 +48,15 @@
 
         .artigo-autor {
             font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
         }
 
         .imagem {
             width: 200px;
             height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
         }
 
         article {
@@ -57,7 +67,39 @@
             padding: 20px;
             border-radius: 10px;
             width: 90%;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
+        .conteudo {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        /* Estilos do Quiz adicionados para o fechamento da página */
+        .quiz-section {
+            background-color: white;
+            width: 90%;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .quiz-options button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #183C63;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .quiz-options button:hover {
+            background-color: #25588f;
         }
 
         footer {
@@ -68,3 +110,84 @@
         }
     </style>
 </head>
+
+<body>
+
+    <header>
+        <h1>Dilemas Digitais</h1>
+        <p>A vida conectada e os desafios do século XXI</p>
+    </header>
+
+    <main>
+        <!-- Dilema 1 -->
+        <article>
+            <div class="conteudo">
+                <h2>1. O Vício em Redes Sociais</h2>
+                <p class="artigo-autor">Por: Especialista em Saúde Mental</p>
+                <p>O dilema:</p>
+                <p>Algoritmos são desenhados para reter nossa atenção, gerando dependência psicológica e perda de tempo produtivo.</p>
+                <p>A Solução:</p>
+                <p>Praticar o desintoxicação digital (detox). Definir limites de tempo diários nos aplicativos e desativar notificações não essenciais.</p>
+            </div>
+            <img class="imagem" src="https://picsum.photos" alt="Pessoa distraída com smartphone">
+        </article>
+
+        <!-- Dilema 2 -->
+        <article>
+            <div class="conteudo">
+                <h2>2. Fake News e Desinformação</h2>
+                <p class="artigo-autor">Por: Educador de Mídia</p>
+                <p>O dilema:</p>
+                <p>Informações falsas se espalham seis vezes mais rápido que as verdadeiras, moldando opiniões baseadas em mentiras.</p>
+                <p>A Solução:</p>
+                <p>Desenvolver o pensamento crítico. Sempre checar a fonte, verificar em agências de checagem e não compartilhar links apenas pelo título.</p>
+            </div>
+            <img class="imagem" src="https://picsum.photos" alt="Lupa analisando dados digitais">
+        </article>
+
+        <!-- Dilema 3 -->
+        <article>
+            <div class="conteudo">
+                <h2>3. Privacidade de Dados</h2>
+                <p class="artigo-autor">Por: Técnico em Segurança</p>
+                <p>O dilema:</p>
+                <p>Nossos dados pessoais são rastreados, vendidos e utilizados para prever nossos comportamentos sem consentimento claro.</p>
+                <p>A Solução:</p>
+                <p>Utilizar navegadores focados em privacidade, ativar a autenticação em duas etapas e ler as permissões de cookies antes de aceitar tudo.</p>
+            </div>
+            <img class="imagem" src="https://picsum.photos" alt="Cadeado digital protegendo dados">
+        </article>
+
+        <!-- Seção do Quiz -->
+        <section class="quiz-section">
+            <h2>Quiz Rápido: Como está sua saúde digital?</h2>
+            <div id="quiz-container">
+                <p id="question">Qual é a sua primeira reação ao acordar?</p>
+                <div class="quiz-options">
+                    <button onclick="responderQuiz(1)">Olhar imediatamente as redes sociais.</button>
+                    <button onclick="responderQuiz(2)">Fazer um alongamento ou tomar café antes de ligar a tela.</button>
+                </div>
+            </div>
+            <p id="quiz-result" style="display:none; font-weight:bold; color:#183C63; margin-top:15px;"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Blog Dilemas Digitais. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função simples em JavaScript para dar interatividade ao quiz do seu site
+        function responderQuiz(opcao) {
+            const resultado = document.getElementById("quiz-result");
+            if (opcao === 1) {
+                resultado.innerText = "Resultado: Alerta! Você pode estar sofrendo de dependência digital. Tente implementar a solução do Dilema 1 hoje mesmo.";
+            } else {
+                resultado.innerText = "Resultado: Parabéns! Você possui um bom equilíbrio e consegue manter limites saudáveis com a tecnologia.";
+            }
+            resultado.style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
